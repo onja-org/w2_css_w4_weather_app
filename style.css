@@ -1,0 +1,117 @@
+/* ==== 🌤️ Base Styles – Already Set ==== */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(120deg, #f6d365, #fda085); /* nice modern gradient */
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column;
+}
+
+/* ==== 📦 Container ==== */
+.container {
+  background: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  width: 320px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  /* TODO: Add vertical layout (e.g., flex-direction: column) if needed */
+}
+
+/* ==== 🏷️ Title ==== */
+h1 {
+  margin-bottom: 1rem;
+  color: #e67e22;
+  /* TODO: Add any typography styling if desired */
+}
+
+/* ==== 🔎 Input Field ==== */
+input {
+  /* TODO: Style the input field:
+     - Uniform height with button
+     - Internal padding
+     - Rounded corners
+     - Responsive width
+     - Good font size
+     - Margin below
+     - Border with visible contrast
+  */
+}
+
+/* ==== 🔘 Button ==== */
+button {
+  /* TODO: Style the button:
+     - Padding
+     - Background color
+     - Text color
+     - Border radius
+     - Font size
+     - Cursor pointer
+     - Margin top
+     - Transition effect (for hover)
+  */
+}
+
+button:hover {
+  /* TODO: Add hover/active styling to make the button interactive */
+}
+
+/* ==== 🌦️ Weather Info ==== */
+.weather {
+  margin-top: 1.5rem;
+  /* TODO: Style this section like a weather "card":
+     - Use shadows or border
+     - Padding and spacing
+     - Flex or grid layout for icon + text
+     - Responsive width or layout
+  */
+}
+
+.weather img {
+  margin-top: 0.5rem;
+  width: 80px;
+  /* Optional: Add effects or conditional styling later */
+}
+
+/* ==== 🧠 Dropdown Suggestions ==== */
+.dropdown {
+  position: relative;
+  /* Container for input + suggestions dropdown */
+}
+
+#suggestions {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  width: 100%;
+  max-height: 150px;
+  overflow-y: auto;
+  background-color: white;
+  border: 2px solid #f39c12;
+  border-top: none;
+  border-radius: 0 0 0.5rem 0.5rem;
+  z-index: 1000;
+  display: none; /* JS will toggle this */
+  /* TODO: Adjust style if needed for clarity/contrast */
+}
+
+#suggestions li {
+  padding: 0.6rem;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+  /* TODO: Make interactive on hover */
+}
+
+#suggestions li:last-child {
+  border-bottom: none;
+}
+
+#suggestions li:hover {
+  background-color: #fceae0;
+}

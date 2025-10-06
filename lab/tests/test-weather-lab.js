@@ -1,8 +1,14 @@
 const fs = require('fs');
 const cheerio = require('cheerio');
+const path = require('path');
 
-const html = fs.readFileSync('index.html', 'utf8');
-const css = fs.readFileSync('style.css', 'utf8');
+// Determine correct paths based on current working directory
+const isRunFromRoot = process.cwd().endsWith('w2_css_w4_weather_app');
+const htmlPath = isRunFromRoot ? 'lab/index.html' : '../index.html';
+const cssPath = isRunFromRoot ? 'lab/style.css' : '../style.css';
+
+const html = fs.readFileSync(htmlPath, 'utf8');
+const css = fs.readFileSync(cssPath, 'utf8');
 const $ = cheerio.load(html);
 
 // ===== HTML TESTS ===== //

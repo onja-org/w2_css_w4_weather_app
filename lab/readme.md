@@ -1,4 +1,15 @@
-# 🌦️ Lab: CSS Styling for a Local Weather App
+# 🌦️ Weather App Lab - Step-by-Step Instructions
+
+> **Before starting**: Make sure you've read the main project README for an overview of what you'll be building.
+
+## 📋 Lab Setup
+
+You'll be working with these files:
+- `index.html` ← **You will create this**
+- `style.css` ← **Your main focus**
+- `weatherData.js` ← **Do not edit** (handles weather data)
+- `app.js` ← **Do not edit** (handles app functionality)
+- `tests/test-weather-lab.js` ← **Do not edit** (testing utilities)ng for a Local Weather App
 
 ## 🎯 Objective
 In this lab, you will build a small weather app using **your own HTML** and style it with **pure CSS**. You will be given a working JavaScript file that handles data—you won’t touch that. Your goal is to create the structure with HTML and make it beautiful with CSS.
@@ -87,29 +98,41 @@ Style the weather output so it looks like a **weather card**:
 - Test across multiple screen sizes
 - Clean up any overlapping or scroll issues
 
-## 🚀 Submission Instructions
+## 🧪 Testing Your Implementation
 
-When you're done:
-1. Save all changes
-2. Ensure your HTML is semantic and valid
-3. Push your project to GitHub (or zip and upload if instructed)
-
-### Git Quick Start (if needed):
+To verify your work meets the requirements, run the automated tests:
 
 ```bash
-git init
-git add .
-git commit -m "Complete advanced CSS layout for weather app"
-git remote add origin https://github.com/your-username/weather-lab.git
-git branch -M main
-git push -u origin main
+# From the project root directory
+npm test
 ```
+
+The tests will validate:
+- ✅ HTML structure and semantic elements
+- ✅ Required CSS classes and styling
+- ✅ Responsive layout implementation
+- ✅ Interactive element styling
+
+> **Tip**: Run tests frequently as you work through each step to catch issues early!
+
+---
+
+## 🚀 Submission
+
+When you're done:
+1. Save all changes to `index.html` and `style.css`
+2. Ensure your HTML is semantic and valid
+3. Test your app functionality with the provided JavaScript
+4. Push your project to GitHub (if required)
 
 ## 🌟 Stretch Goals (Optional)
 
 - Add CSS animations (e.g. fade in weather card)
 - Create a custom weather icon style
-- Make the UI themeable (light/dark)
+- Make the UI themeable (light/dark mode)
 - Add a footer with credits and link to your GitHub
+- Implement additional responsive breakpoints
 
-💡 Don't worry if it doesn't look exactly like the screenshot. The goal is to practice layout and styling techniques you've learned so far.
+---
+
+💡 **Remember**: Don't worry if it doesn't look exactly like the reference image. The goal is to practice layout and styling techniques while creating a functional, beautiful interface.

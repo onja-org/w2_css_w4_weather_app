@@ -4,7 +4,7 @@
   "description": "Semantic and structural validator for the Weather App lab",
   "main": "test.js",
   "scripts": {
-    "test": "npm install & node test-weather-lab.js"
+    "test": "npm install & node lab/tests/test-weather-lab.js"
   },
   "keywords": ["weather", "html", "semantic", "cheerio", "validator"],
   "author": "Your Name or Onja",

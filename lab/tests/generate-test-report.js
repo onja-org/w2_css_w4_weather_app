@@ -1,0 +1,149 @@
+const { execSync } = require('child_process');
+const fs = require('fs');
+const path = require('path');
+
+// Run Jest tests and capture output
+try {
+    console.log('Running Jest tests...');
+    // Run from project root, not from tests folder
+    execSync('npx jest --json --outputFile=test-results.json', { 
+        encoding: 'utf-8',
+        cwd: path.join(__dirname, '..', '..')
+    });
+    console.log('Tests completed');
+} catch {
+    console.log('Tests completed with failures');
+}
+
+// Read the test results
+let testResults;
+try {
+    const resultsFile = path.join(__dirname, '..', '..', 'test-results.json');
+    if (fs.existsSync(resultsFile)) {
+        testResults = JSON.parse(fs.readFileSync(resultsFile, 'utf-8'));
+    } else {
+        throw new Error('Test results file not found');
+    }
+} catch (error) {
+    console.error('Error reading test results:', error.message);
+    process.exit(1);
+}
+
+let passRate = testResults.numTotalTests > 0
+        ? (testResults.numPassedTests / testResults.numTotalTests) * 100
+        : 0;
+passRate = passRate % 1 === 0 ? String(passRate) : passRate.toFixed(1);
+
+
+// Generate HTML report (only summary, unused styles/code removed)
+const htmlContent = `
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="UTF-8">
+        <title>Weather App Test Results</title>
+        <style>
+                body {
+                        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                        background-color: #f5f5f5;
+                        padding: 20px;
+                }
+                .container {
+                        max-width: 600px;
+                        margin: 0 auto;
+                        background: white;
+                        border-radius: 10px;
+                        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+                        overflow: hidden;
+                        padding-bottom: 32px;
+                }
+                .header {
+                        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+                        color: white;
+                        padding: 30px;
+                        text-align: center;
+                }
+                .header h1 {
+                        margin: 0;
+                        font-size: 2em;
+                        font-weight: 300;
+                }
+                .summary {
+                        display: flex;
+                        justify-content: space-around;
+                        border-bottom: 1px solid #eee;
+                }
+                .summary-item {
+                        padding: 20px;
+                        text-align: center;
+                }
+                .summary-number {
+                        display: block;
+                        font-size: 2em;
+                        font-weight: bold;
+                }
+                .passed { color: #28a745; }
+                .failed { color: #dc3545; }
+                .total { color: #6c757d; }
+                .test-suites { color: #17a2b8; }
+                .summary-label {
+                        color: #666;
+                        font-size: 0.9em;
+                        text-transform: uppercase;
+                }
+                .timestamp {
+                        text-align: center;
+                        color: #666;
+                        margin-top: 20px;
+                        padding-top: 20px;
+                        border-top: 1px solid #eee;
+                }
+        </style>
+</head>
+<body>
+        <div class="container">
+                <div class="header">
+                        <h1>Weather App Test Results</h1>
+                </div>
+                <div class="summary">
+                        <div class="summary-item">
+                                <span class="summary-label">Total Tests</span>
+                                <span class="summary-number total">${testResults.numTotalTests}</span>
+                        </div>
+                        <div class="summary-item">
+                                <span class="summary-label">Passed</span>
+                                <span class="summary-number passed">${testResults.numPassedTests}</span>
+                        </div>
+                        <div class="summary-item">
+                                <span class="summary-label">Failed</span>
+                                <span class="summary-number failed">${testResults.numFailedTests}</span>
+                        </div>
+                        <div class="summary-item">
+                                <span class="summary-label">Pass Rate</span>
+                                <span class="summary-number test-suites">${passRate}%</span>
+                        </div>
+                </div>
+                <div class="timestamp">
+                        Generated on ${new Date().toLocaleString()}
+                </div>
+        </div>
+</body>
+</html>
+`;
+
+// Write HTML report to the tests folder
+const reportsDir = path.join(__dirname);
+if (!fs.existsSync(reportsDir)) {
+    fs.mkdirSync(reportsDir, { recursive: true });
+}
+
+const reportPath = path.join(reportsDir, 'test-results.html');
+fs.writeFileSync(reportPath, htmlContent);
+
+console.log(`HTML test report generated: ${reportPath}`);
+
+// Clean up temporary JSON file
+const tempJsonFile = path.join(__dirname, '..', '..', 'test-results.json');
+if (fs.existsSync(tempJsonFile)) {
+    fs.unlinkSync(tempJsonFile);
+}

@@ -90,22 +90,22 @@ echo -e "   Pass rate: ${YELLOW}$passed_ratio%${RESET}"
 echo -e "${CYAN}→ Stopping server...${RESET}"
 kill -9 "$server_pid" >/dev/null 2>&1 || true
 
-# # ===============================
-# # 7️⃣ Commit and push results
-# # ===============================
+# ===============================
+# 7️⃣ Commit and push results
+# ===============================
 
-# echo -e "${CYAN}→ Committing results...${RESET}"
-# git add . >/dev/null 2>&1
-# git commit -m "Test Results: $total_tests total, $passed_tests passed, $failed_tests failed ($passed_ratio% pass rate)" >/dev/null 2>&1
-# git push -f >/dev/null 2>&1
+echo -e "${CYAN}→ Committing results...${RESET}"
+git add . >/dev/null 2>&1
+git commit -m "Test Results: $total_tests total, $passed_tests passed, $failed_tests failed ($passed_ratio% pass rate)" >/dev/null 2>&1
+git push -f >/dev/null 2>&1
 
-# # ===============================
-# # 8️⃣ Cleanup branches
-# # ===============================
+# ===============================
+# 8️⃣ Cleanup branches
+# ===============================
 
-# echo -e "${CYAN}→ Cleaning up...${RESET}"
-# git checkout main >/dev/null 2>&1
-# git branch -D "$branch_name" >/dev/null 2>&1
+echo -e "${CYAN}→ Cleaning up...${RESET}"
+git checkout main >/dev/null 2>&1
+git branch -D "$branch_name" >/dev/null 2>&1
 
 # ===============================
 # ✅ Done

@@ -42,6 +42,12 @@ cd /path/to/w2_css_w4_weather_app
 
 # Run the tests
 npm test
+
+# Run tests in watch mode (automatically re-runs when files change)
+npm run test:watch
+
+# Generate test coverage report
+npm run test:coverage
 ```
 
 The tests will check:
@@ -49,6 +55,30 @@ The tests will check:
 - CSS styling and layout properties
 - Required classes and IDs
 - Responsive design implementation
+
+### 📊 Test Results
+
+After running tests, an HTML test report is automatically generated at `lab/tests/test-results.html`. This report provides:
+- **Total test count** and pass/fail statistics
+- **Detailed breakdown** of each test case
+- **Visual summary** with color-coded results
+- **Timestamp** of when tests were run
+
+Open the HTML file in your browser to view a comprehensive, styled test report that makes it easy to see which requirements you've completed and which still need work.
+
+## 🚀 Submitting Your Work
+
+When you're ready to submit your completed weather app:
+
+```bash
+# Generate test report and submit
+npm run submit
+```
+
+This command will:
+1. **Run all tests** and generate the HTML test report
+2. **Execute the submission script** to package your work
+3. **Create a summary** of your implementation for review
 
 ## 🚀 Getting Started
 
@@ -91,6 +121,8 @@ The tests will check:
 - CSS transitions and animations
 - Form styling and user interaction design
 - Component-based styling approach
+- **Test-driven development workflow**
+- **Automated testing and validation**
 
 ## 🎯 Success Criteria
 
@@ -100,6 +132,16 @@ Your weather app should be:
 - ✅ Accessible with proper contrast and interactive states
 - ✅ Well-organized with clean, readable code
 - ✅ Functionally complete with all required UI elements
+- ✅ **Pass all automated tests** (check your test report!)
+
+## 🔄 Development Workflow
+
+1. **Create your HTML structure** in `lab/index.html`
+2. **Style your components** in `lab/style.css`
+3. **Run tests frequently** with `npm test` to check progress
+4. **Review test results** in the generated HTML report
+5. **Iterate and improve** based on test feedback
+6. **Submit when complete** using `npm run submit`
 
 ---
 

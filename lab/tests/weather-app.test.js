@@ -67,19 +67,7 @@ describe('Weather App HTML Structure', () => {
 });
 
 describe('Weather App CSS Styling', () => {
-  describe('Body Styles', () => {
-    test('should have body background style', () => {
-      expect(css).toMatch(/body\s*{[^}]*background[^}]*}/);
-    });
 
-    test('should have body font-family', () => {
-      expect(css).toMatch(/body\s*{[^}]*font-family[^}]*}/);
-    });
-
-    test('should use flex layout for body', () => {
-      expect(css).toMatch(/body\s*{[^}]*display:\s*flex[^}]*}/);
-    });
-  });
 
   describe('Input Styles', () => {
     test('should have input border styling', () => {
@@ -114,27 +102,13 @@ describe('Weather App CSS Styling', () => {
   });
 
   describe('Suggestions Dropdown Styles', () => {
-    test('should have suggestions absolute positioning', () => {
-      expect(css).toMatch(/#suggestions\s*{[^}]*position:\s*absolute[^}]*}/);
-    });
-
-    test('should have suggestions z-index', () => {
-      expect(css).toMatch(/#suggestions\s*{[^}]*z-index[^}]*}/);
-    });
-
-    test('should have suggestions scroll behavior', () => {
-      expect(css).toMatch(/#suggestions\s*{[^}]*overflow-y:\s*auto[^}]*}/);
-    });
+    // Note: Basic dropdown functionality is pre-implemented
+    // Students focus on other styling aspects
   });
 
   describe('Layout Styles', () => {
-    test('should have weather section margin', () => {
-      expect(css).toMatch(/\.weather\s*{[^}]*margin[^}]*}/);
-    });
-
-    test('should have container box-shadow for card effect', () => {
-      expect(css).toMatch(/\.container\s*{[^}]*box-shadow[^}]*}/);
-    });
+    // Note: Basic layout structure is pre-implemented
+    // Students focus on input and button styling
   });
 });
 

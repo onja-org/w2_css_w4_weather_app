@@ -34,7 +34,7 @@ h1 {
 input {
   /* TODO: Style the input field:
      - Uniform height with button
-     - Internal padding
+     - Internal spacing
      - Rounded corners
      - Responsive width
      - Good font size
@@ -47,8 +47,8 @@ input {
 button {
   /* TODO: Style the button:
      - Padding
-     - Background color
-     - Text color
+     - Background styling
+     - Text styling
      - Border radius
      - Font size
      - Cursor pointer

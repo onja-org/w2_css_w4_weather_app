@@ -49,7 +49,25 @@ if (result) {
 }
 }
 
-  
+// Event listeners - added when DOM is loaded
+document.addEventListener("DOMContentLoaded", function() {
+    // Add input event listener for city filtering
+    const cityInput = document.getElementById("cityInput");
+    cityInput.addEventListener("input", filterCities);
+    
+    // Add click event listener for get weather button
+    const getWeatherButton = document.getElementById("getWeather");
+    getWeatherButton.addEventListener("click", getWeather);
+    
+    // Add Enter key support for the input field
+    cityInput.addEventListener("keypress", function(event) {
+        if (event.key === "Enter") {
+            getWeather();
+        }
+    });
+});
+
+// Hide suggestions when clicking outside
 document.addEventListener("click", function (e) {
     if (!document.querySelector(".dropdown").contains(e.target)) {
         document.getElementById("suggestions").style.display = "none";

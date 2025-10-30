@@ -14,7 +14,7 @@ You'll be working with these files:
 ## 🎯 Objective
 In this lab, you will build a small weather app using **your own HTML** and style it with **pure CSS**. You will be given a working JavaScript file that handles data—you won’t touch that. Your goal is to create the structure with HTML and make it beautiful with CSS.
 
-![Weather app home](./assets/Weatherapp_01.PNG)
+![Weather app home](../assets/Weatherapp_01.PNG)
 ---
 
 ## 📁 Starter Files

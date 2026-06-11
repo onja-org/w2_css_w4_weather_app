@@ -16,11 +16,14 @@ body {
   padding: 2rem;
   border-radius: 1rem;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-  width: 320px;
+  width: 330px;
   text-align: center;
   display: flex;
   justify-content: center;
   /* TODO: Add vertical layout (e.g., flex-direction: column) if needed */
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
 /* ==== 🏷️ Title ==== */
@@ -28,10 +31,26 @@ h1 {
   margin-bottom: 1rem;
   color: #e67e22;
   /* TODO: Add any typography styling if desired */
+  font-weight: bold;
+  text-decoration: #e67e22;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  text-transform: suppercase;
+  text-align: center;
+  
+  padding: 0.5rem 1rem;
+  
 }
 
 /* ==== 🔎 Input Field ==== */
 input {
+  width: 80%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 2px solid #f39c12;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  float: center;
+
   /* TODO: Style the input field:
      - Uniform height with button
      - Internal spacing
@@ -45,6 +64,17 @@ input {
 
 /* ==== 🔘 Button ==== */
 button {
+    width: 40%;
+    padding: 0.5rem;
+    background-color: #f39c12;
+    color: white;
+    border: 1px solid #f39c12;
+    border-radius: 0.5rem;
+    font-size: 0.7rem;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: background-color 0.3s ease;
+
   /* TODO: Style the button:
      - Padding
      - Background styling
@@ -58,12 +88,22 @@ button {
 }
 
 button:hover {
+    background-color: #e67e22;
+    border-color: #e67e22;
   /* TODO: Add hover/active styling to make the button interactive */
 }
 
 /* ==== 🌦️ Weather Info ==== */
 .weather {
   margin-top: 1.5rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  grid-auto-flow: dense;
   /* TODO: Style this section like a weather "card":
      - Use shadows or border
      - Padding and spacing
@@ -75,12 +115,16 @@ button:hover {
 .weather img {
   margin-top: 0.5rem;
   width: 80px;
+  height: 80px;
+  object-fit: contain;
   /* Optional: Add effects or conditional styling later */
 }
 
 /* ==== 🧠 Dropdown Suggestions ==== */
 .dropdown {
   position: relative;
+  contain: layout;
+  }
   /* Container for input + suggestions dropdown */
 }
 
@@ -97,7 +141,7 @@ button:hover {
   border-top: none;
   border-radius: 0 0 0.5rem 0.5rem;
   z-index: 1000;
-  display: none; /* JS will toggle this */
+  display: none; 
   /* TODO: Adjust style if needed for clarity/contrast */
 }
 
@@ -105,6 +149,8 @@ button:hover {
   padding: 0.6rem;
   cursor: pointer;
   border-bottom: 1px solid #eee;
+  grid-auto-flow: dense;
+
   /* TODO: Make interactive on hover */
 }
 
@@ -114,4 +160,17 @@ button:hover {
 
 #suggestions li:hover {
   background-color: #fceae0;
+
+}
+.weather-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 40px 30px;
+  border-radius: 16px;
+  width: 80%;
+  max-width: 300px;          
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }

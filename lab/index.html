@@ -7,8 +7,23 @@
   <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
+  <div class="weather-card">
 
+    <header>
+      <h1>Weather App</h1>
+    </header>
+    <main>
+      <div class="input-group">
+        <input type="text" id="cityInput" placeholder="Enter city...">
+        <button id="getWeather">Get Weather</button>
+      </div>
+
+      <ul class="suggestions"></ul>
+      <section id="weatherInfo"></section>
+    </main>
+  </div> 
   <script src="weatherData.js"></script>
   <script src="app.js"></script>
 </body>
+
 </html>

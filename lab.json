@@ -1,0 +1,33 @@
+{
+  "id": "css-weather-app",
+  "title": "Weather App — CSS Styling",
+  "block": "CSS",
+  "week": "1",
+  "day": "6",
+
+  "canvas": {
+    "course_id": "CANVAS_COURSE_ID",
+    "assignment_id": "CANVAS_ASSIGNMENT_ID"
+  },
+
+  "checks": [
+    {
+        "id": "has_index",
+        "type": "file_exists",
+        "description": "lab/index.html exists",
+        "paths": ["lab/index.html"]
+    },
+    {
+        "id": "has_style",
+        "type": "file_exists",
+        "description": "lab/style.css exists",
+        "paths": ["lab/style.css"]
+    },
+    {
+        "id": "has_commits",
+        "type": "git_commits",
+        "description": "At least one commit has been made",
+        "min": 1
+    }
+  ]
+}

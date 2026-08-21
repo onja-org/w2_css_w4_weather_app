@@ -9,19 +9,19 @@ You'll be working with these files:
 - `style.css` ← **Your main focus**
 - `weatherData.js` ← **Do not edit** (handles weather data)
 - `app.js` ← **Do not edit** (handles app functionality)
-- `tests/test-weather-lab.js` ← **Do not edit** (testing utilities)ng for a Local Weather App
+- `tests/weather-app.test.js` ← **Do not edit** (testing utilities)
 
 ## 🎯 Objective
 In this lab, you will build a small weather app using **your own HTML** and style it with **pure CSS**. You will be given a working JavaScript file that handles data—you won’t touch that. Your goal is to create the structure with HTML and make it beautiful with CSS.
 
-![Weather app home](../assets/Weatherapp_01.PNG)
+![Weather app home](assets/Weatherapp_01.PNG)
 ---
 
 ## 📁 Starter Files
 You will receive the following files:
 
 ```
-weather-lab/
+lab/
 ├── index.html        ← You will write this
 ├── weatherData.js    ← Do not edit
 ├── app.js            ← Do not edit
@@ -103,7 +103,8 @@ Style the weather output so it looks like a **weather card**:
 To verify your work meets the requirements, run the automated tests:
 
 ```bash
-# From the project root directory
+# From the lab/ directory
+npm install
 npm test
 ```
 
@@ -123,7 +124,7 @@ When you're done:
 1. Save all changes to `index.html` and `style.css`
 2. Ensure your HTML is semantic and valid
 3. Test your app functionality with the provided JavaScript
-4. Push your project to GitHub (if required)
+4. From the project root, run `bash submit.sh` to submit your work
 
 ## 🌟 Stretch Goals (Optional)
 

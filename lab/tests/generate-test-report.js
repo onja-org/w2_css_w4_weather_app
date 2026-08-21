@@ -5,10 +5,10 @@ const path = require('path');
 // Run Jest tests and capture output
 try {
     console.log('Running Jest tests...');
-    // Run from project root, not from tests folder
-    execSync('npx jest --json --outputFile=test-results.json', { 
+    // Run from the lab folder (where package.json/jest.config.js live), not from tests folder
+    execSync('npx jest --json --outputFile=test-results.json', {
         encoding: 'utf-8',
-        cwd: path.join(__dirname, '..', '..')
+        cwd: path.join(__dirname, '..')
     });
     console.log('Tests completed');
 } catch {
@@ -18,7 +18,7 @@ try {
 // Read the test results
 let testResults;
 try {
-    const resultsFile = path.join(__dirname, '..', '..', 'test-results.json');
+    const resultsFile = path.join(__dirname, '..', 'test-results.json');
     if (fs.existsSync(resultsFile)) {
         testResults = JSON.parse(fs.readFileSync(resultsFile, 'utf-8'));
     } else {
@@ -143,7 +143,7 @@ fs.writeFileSync(reportPath, htmlContent);
 console.log(`HTML test report generated: ${reportPath}`);
 
 // Clean up temporary JSON file
-const tempJsonFile = path.join(__dirname, '..', '..', 'test-results.json');
+const tempJsonFile = path.join(__dirname, '..', 'test-results.json');
 if (fs.existsSync(tempJsonFile)) {
     fs.unlinkSync(tempJsonFile);
 }

@@ -7,7 +7,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "submit": "node lab/tests/generate-test-report.js && bash scripts/submit.sh"
+    "report": "node tests/generate-test-report.js"
   },
   "keywords": [
     "weather",

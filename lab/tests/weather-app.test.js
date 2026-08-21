@@ -6,12 +6,9 @@ const path = require('path');
 let html, css, $;
 
 beforeAll(() => {
-  // Determine correct paths based on current working directory
-  const isRunFromRoot = process.cwd().endsWith('w2_css_w4_weather_app');
-  const htmlPath = isRunFromRoot ? 'lab/index.html' : '../index.html';
-  const cssPath = isRunFromRoot ? 'lab/style.css' : '../style.css';
+  const htmlPath = path.join(__dirname, '..', 'index.html');
+  const cssPath = path.join(__dirname, '..', 'style.css');
 
-  // Read files
   html = fs.readFileSync(htmlPath, 'utf8');
   css = fs.readFileSync(cssPath, 'utf8');
   $ = cheerio.load(html);

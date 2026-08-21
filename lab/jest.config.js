@@ -7,7 +7,7 @@ module.exports = {
     [
       'jest-html-reporter',
       {
-        outputPath: 'lab/tests/test-results.html',
+        outputPath: 'tests/test-results.html',
         pageTitle: 'Weather App Test Results',
         includeFailureMsg: true,
         theme: 'lightTheme'

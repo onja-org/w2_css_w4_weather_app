@@ -35,11 +35,14 @@ lab/
 Build the following structure in `index.html`:
 
 - A page title (`<h1>Weather App</h1>`) inside a `<header>` tag
-- An input field to type the city name (`<input type="text">`) inside a styled container
-- A button to get the weather (`<button>Get Weather</button>`)
-- A container to show suggestions (`<ul class="suggestions"></ul>`) under the input
-- A container to display the weather info (`<div id="weatherInfo"></div>`) inside a `<section>`
+- A `.dropdown` wrapper `<div>` containing the input and the suggestions list — `app.js` uses this wrapper to detect clicks outside the dropdown, so it must exist with exactly this class name
+- An input field to type the city name (`<input type="text" id="cityInput">`) inside that wrapper
+- A button to get the weather (`<button id="getWeather">Get Weather</button>`)
+- A suggestions list **with `id="suggestions"`** (not a class) under the input — `app.js` looks it up by ID
+- A container to display the weather info (`<section id="weatherInfo"></section>`)
 - Use semantic HTML elements where possible: `<main>`, `<header>`, `<section>`, `<footer>`
+
+`app.js` already contains two functions for you — `filterCities()` (drives the dropdown) and `getWeather()` (fetches and renders the result) — but nothing calls them until your HTML wires them up. Attach them with `oninput` and `onclick`:
 
 Example layout (structure only):
 ```html
@@ -47,14 +50,16 @@ Example layout (structure only):
   <h1>Weather App</h1>
 </header>
 <main>
-  <div class="input-group">
-    <input type="text" id="cityInput" placeholder="Enter city...">
-    <button id="getWeather">Get Weather</button>
-    <ul class="suggestions"></ul>
+  <div class="dropdown">
+    <input type="text" id="cityInput" placeholder="Start typing a city..." oninput="filterCities()">
+    <button id="getWeather" onclick="getWeather()">Get Weather</button>
+    <ul id="suggestions"></ul>
   </div>
   <section id="weatherInfo"></section>
 </main>
 ```
+
+> ⚠️ **Common mistake**: if you skip the `.dropdown` wrapper, `app.js`'s outside-click handler will throw an error on *every* click anywhere on the page. If you use `class="suggestions"` instead of `id="suggestions"`, or forget the `oninput`/`onclick` attributes, the tests can still pass but the app won't actually respond when you type or click — always click around in the browser to confirm it works, don't rely on `npm test` alone.
 
 ## 🎨 Step 2: Style the Page with CSS
 

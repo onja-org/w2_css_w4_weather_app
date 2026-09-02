@@ -38,14 +38,25 @@ describe('Weather App HTML Structure', () => {
       expect(weatherButton.length).toBeGreaterThan(0);
     });
 
-    test('should have a ul element for suggestions', () => {
-      const suggestionsList = $('ul').hasClass('suggestions') || $('ul#suggestions').length > 0;
-      expect(suggestionsList).toBe(true);
+    test('should have a ul#suggestions element (app.js looks it up by ID, not class)', () => {
+      expect($('ul#suggestions').length).toBeGreaterThan(0);
     });
 
     test('should have a weatherInfo container', () => {
       const weatherBox = $('#weatherInfo');
       expect(weatherBox.length).toBeGreaterThan(0);
+    });
+
+    test('should have a .dropdown wrapper around the input (app.js reads this on every click)', () => {
+      expect($('.dropdown').length).toBeGreaterThan(0);
+    });
+
+    test('input should call filterCities() on input', () => {
+      expect($('#cityInput').attr('oninput') || '').toMatch(/filterCities\(\)/);
+    });
+
+    test('button should call getWeather() on click', () => {
+      expect($('#getWeather').attr('onclick') || '').toMatch(/getWeather\(\)/);
     });
   });
 
@@ -118,9 +129,10 @@ describe('Weather App Integration', () => {
       $(el).text().toLowerCase().includes('weather')
     ).length > 0;
     const hasWeatherContainer = $('#weatherInfo').length > 0;
-    const hasSuggestions = $('ul').hasClass('suggestions') || $('ul#suggestions').length > 0;
+    const hasSuggestions = $('ul#suggestions').length > 0;
+    const hasDropdownWrapper = $('.dropdown').length > 0;
 
-    expect(hasTitle && hasInput && hasButton && hasWeatherContainer && hasSuggestions).toBe(true);
+    expect(hasTitle && hasInput && hasButton && hasWeatherContainer && hasSuggestions && hasDropdownWrapper).toBe(true);
   });
 
   test('should have proper styling for user interaction', () => {

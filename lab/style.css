@@ -62,7 +62,7 @@ button:hover {
 }
 
 /* ==== 🌦️ Weather Info ==== */
-.weather {
+#weatherInfo {
   margin-top: 1.5rem;
   /* TODO: Style this section like a weather "card":
      - Use shadows or border
@@ -72,7 +72,7 @@ button:hover {
   */
 }
 
-.weather img {
+#weatherInfo img {
   margin-top: 0.5rem;
   width: 80px;
   /* Optional: Add effects or conditional styling later */

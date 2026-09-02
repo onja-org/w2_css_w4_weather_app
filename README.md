@@ -23,7 +23,7 @@ This is a hands-on CSS styling lab focused on building a responsive and visually
 ## How this lab works
 
 ```
-w2_css_w4_weather_app/
+w2_css_w1_weather_app/
 ├── lab/
 │   ├── instructions.md   ← Start here. Step-by-step tasks.
 │   ├── index.html        ← You will create this
